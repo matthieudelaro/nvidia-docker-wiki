@@ -8,7 +8,7 @@
 The list of prerequisites for running `nvidia-docker` is described below.  
 For information on how to install Docker for your Linux distribution, please refer to the [Docker documentation](https://docs.docker.com/engine/installation).
 
-1. GNU/Linux x86_64
+1. GNU/Linux x86_64 with kernel version > 3.10
 1. Docker >= 1.9
 1. NVIDIA GPU with Architecture > Fermi (2.1)
 1. [NVIDIA drivers](http://www.nvidia.com/object/unix.html)
