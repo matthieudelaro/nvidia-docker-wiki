@@ -23,7 +23,6 @@ sudo make install
 sudo nvidia-docker volume setup
 
 # Run nvidia-smi
-nvidia-docker pull nvidia/cuda
 nvidia-docker run nvidia/cuda nvidia-smi
 ```
 
