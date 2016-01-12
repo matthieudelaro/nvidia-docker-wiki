@@ -83,9 +83,6 @@ DOCKER_HOST='10.0.0.1:' NV_HOST='ssh://foo@10.0.0.1:22:80' nvidia-docker run cud
 
 ## Known limitations
 
-1. `nvidia-docker run` doesn't automatically `pull` the image.  
-This is mostly due to the fact that images need to be inspected before they can eventually be launched.
-
-2. NVIDIA driver installation needs to live on the same partition as the root of the Docker runtime.  
+1. NVIDIA driver installation needs to live on the same partition as the root of the Docker runtime.  
 `nvidia-docker` internally needs to create hard links to some driver files. Because of this, you need the NVIDIA driver (usually found under `/usr`) to be on the same partition as the Docker root (`/var` by default).
 Possible workarounds includes installing your NVIDIA driver at a different location (see ``--advanced-options`` of the installer) or changing your Docker root directory (see `docker daemon -g`)
