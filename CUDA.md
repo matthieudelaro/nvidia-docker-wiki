@@ -29,11 +29,9 @@ Take a look at the [samples section](Testing-the-samples) to find examples of Do
 
 ```sh
 # Running an interactive CUDA session isolating the first GPU
-nvidia-docker pull nvidia/cuda
 NV_GPU=0 nvidia-docker run -ti --rm nvidia/cuda
 
 # Querying the CUDA 7.5 compiler version
-nvidia-docker pull nvidia/cuda:7.5-devel
 nvidia-docker run --rm nvidia/cuda:7.5-devel nvcc --version
 ```
 
