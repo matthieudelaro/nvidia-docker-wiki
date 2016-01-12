@@ -14,7 +14,6 @@ See the requirements for [CUDA](CUDA#requirements) since the DIGITS image is bas
 
 ```sh
 # Run DIGITS on host port 8080
-nvidia-docker pull nvidia/digits
 nvidia-docker run --name digits -d -p 8080:34448 nvidia/digits
 ```
 If you want to use a dataset stored in a host directory, you will need to import it inside the container using a volume:
