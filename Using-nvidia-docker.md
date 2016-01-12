@@ -7,7 +7,7 @@
 
 ## Description
 
-`nvidia-docker` is a drop-in replacement for the `docker` CLI. In addition, it discovers host driver files and GPU devices and sets up NVIDIA containers for proper execution. For this purpose, a special Docker volume must be created before starting NVIDIA containers. This volume can be created manually, or automatically by the [NVIDIA Docker plugin](Using nvidia-docker-plugin).
+`nvidia-docker` is a drop-in replacement for the `docker` command line interface and it discovers host driver files, GPU devices, and sets up containers with NVIDIA GPUs for proper execution. For this purpose, a special Docker volume must be created before starting the containers. This volume can be created manually, or automatically by the [NVIDIA Docker plugin](Using nvidia-docker-plugin).
 
 `nvidia-docker` also takes care of most of the boilerplate code related to [remote deployments](#running-it-remotely).
 
@@ -29,11 +29,11 @@ NV_GPU='0,1' nvidia-docker <docker-options> <docker-command> <docker-args>
 ## Running it locally
 
 #### With the NVIDIA Docker plugin
-If the `nvidia-docker-plugin` is installed on your host and running locally then, no additional step is needed. `nvidia-docker` will perform what is necessary by querying the plugin when NVIDIA containers need to be launched.
+If the `nvidia-docker-plugin` is installed on your host and running locally, no additional step is needed. `nvidia-docker` will perform what is necessary by querying the plugin when containers using NVIDIA GPUs need to be launched.
 
 #### Standalone version
 
-If you want to rely solely on `nvidia-docker` to run your containers, you will initially need to setup NVIDIA driver volumes on your local machine.
+If you want to rely solely on `nvidia-docker` to run your containers, you will initially need to setup the NVIDIA driver volumes on your local machine.
 In order to do that, `nvidia-docker` provides an additional `setup` command to `docker volume`.
 This is a one-time setup as long as the NVIDIA driver doesn't change. This operation requires root privileges.
 
@@ -52,7 +52,7 @@ sudo nvidia-docker volume setup
 ```
 
 > Executing `nvidia-docker run --rm` or `nvidia-docker rm -v` might remove some of the volumes required by `nvidia-docker`.  
-> If that's the case, you will need to setup the volumes again.
+> If that's the case, you will need to set up the volumes again.
 
 ## Running it remotely
 
@@ -83,6 +83,6 @@ DOCKER_HOST='10.0.0.1:' NV_HOST='ssh://foo@10.0.0.1:22:80' nvidia-docker run cud
 
 ## Known limitations
 
-1. NVIDIA driver installation needs to live on the same partition as the root of the Docker runtime.  
+1. NVIDIA driver installation needs to exist on the same partition as the root of the Docker runtime.  
 `nvidia-docker` internally needs to create hard links to some driver files. Because of this, you need the NVIDIA driver (usually found under `/usr`) to be on the same partition as the Docker root (`/var` by default).
 Possible workarounds includes installing your NVIDIA driver at a different location (see ``--advanced-options`` of the installer) or changing your Docker root directory (see `docker daemon -g`)
