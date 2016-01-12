@@ -14,7 +14,6 @@ See the requirements for [CUDA](CUDA#requirements) since the Caffe image is base
 This image can be used as a base image for other images like [[DIGITS]], or it can be used directly to train networks:
 ```sh
 # Run a Caffe training job
-nvidia-docker pull nvidia/caffe
 nvidia-docker run --rm nvidia/caffe caffe train --solver <args>
 ```
 
