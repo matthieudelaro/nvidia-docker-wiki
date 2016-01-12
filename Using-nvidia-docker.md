@@ -7,7 +7,7 @@
 
 ## Description
 
-`nvidia-docker` is a drop-in replacement for the `docker` command line interface and it discovers host driver files, GPU devices, and sets up containers with NVIDIA GPUs for proper execution. For this purpose, a special Docker volume must be created before starting the containers. This volume can be created manually, or automatically by the [NVIDIA Docker plugin](Using nvidia-docker-plugin).
+`nvidia-docker` is a drop-in replacement for the `docker` command line interface and discovers host driver files, GPU devices, and sets up containers with NVIDIA GPUs for proper execution. For this purpose, a special Docker volume must be created before starting the containers. This volume can be created manually, or automatically by the [NVIDIA Docker plugin](Using nvidia-docker-plugin).
 
 `nvidia-docker` also takes care of most of the boilerplate code related to [remote deployments](#running-it-remotely).
 
