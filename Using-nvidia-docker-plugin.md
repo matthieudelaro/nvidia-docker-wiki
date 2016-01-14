@@ -33,7 +33,7 @@ However, you can run it in an _almost_ unprivileged fashion by doing the followi
 # Add a system user nvidia-docker
 adduser --system --no-create-home --group nvidia-docker
 # Register the plugin with the Docker daemon
-mkdir -p /etc/docker/plugins && echo "unix:///var/run/nvidia-docker.sock" > /etc/docker/plugins/nvidia.spec
+mkdir -p /etc/docker/plugins && echo "unix:///var/run/nvidia-docker.sock" > /etc/docker/plugins/nvidia-docker.spec
 # Set the mandatory permission
 setcap cap_fowner+pe /usr/bin/nvidia-docker-plugin
 
