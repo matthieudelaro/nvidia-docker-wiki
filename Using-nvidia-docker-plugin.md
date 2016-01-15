@@ -12,7 +12,8 @@ The plugin also provides a [REST API](#rest-api) that one can query to get GPU i
 
 ## Usage
 
-The plugin daemon can be tuned using the following arguments:
+The plugin daemon can be tuned using the following arguments:  
+(If you are using the Debian package, those can be changed using the configuration file `/etc/default/nvidia-docker`)
 
 ```sh
   -l string
@@ -26,14 +27,15 @@ The plugin daemon can be tuned using the following arguments:
 Once the plugin is running, `nvidia-docker` will be able to connect to it and request information for containerization.
 In case you upgrade the NVIDIA drivers, you will need to restart the plugin.
 
-By default, `nvidia-docker-plugin` requires root privileges to create the Docker plugin socket.  
+By default, if you run `nvidia-docker-plugin` manually, it will require root privileges to create the Docker plugin socket.  
 However, you can run it in an _almost_ unprivileged fashion by doing the following as root:
 
 ```sh
 # Add a system user nvidia-docker
 adduser --system --home /var/lib/nvidia-docker nvidia-docker
 # Register the plugin with the Docker daemon
-mkdir -p /etc/docker/plugins && echo "unix:///var/lib/nvidia-docker/nvidia-docker.sock" > /etc/docker/plugins/nvidia-docker.spec
+mkdir -p /etc/docker/plugins
+echo "unix:///var/lib/nvidia-docker/nvidia-docker.sock" > /etc/docker/plugins/nvidia-docker.spec
 # Set the mandatory permission
 setcap cap_fowner+pe /usr/bin/nvidia-docker-plugin
 
