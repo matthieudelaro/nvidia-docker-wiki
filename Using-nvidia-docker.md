@@ -51,8 +51,11 @@ nvidia-docker volume rm `nvidia-docker volume ls -q | grep '^nvidia_.*'`
 sudo nvidia-docker volume setup
 ```
 
-> Executing `nvidia-docker run --rm` or `nvidia-docker rm -v` might remove some of the volumes required by `nvidia-docker`.  
-> If that's the case, you will need to set up the volumes again.
+**Warning:** `nvidia-docker run --rm` or `nvidia-docker rm -v` might remove some of the volumes required by `nvidia-docker` (see [docker#17907](https://github.com/docker/docker/issues/17907)). In that case, you will need to either use `nvidia-docker-plugin`, set up the volumes again or use a data container as follows:
+```sh
+DRV="$(sudo nvidia-docker volume setup)"
+nvidia-docker create --name=nvidia_driver -v $DRV:/data:ro tianon/true
+```
 
 ## Running it remotely
 
