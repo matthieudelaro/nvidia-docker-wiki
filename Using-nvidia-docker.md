@@ -72,7 +72,7 @@ The specification of `NV_HOST` is defined as:
 [(http|ssh)://][<ssh-user>@][<host>][:<ssh-port>]:[<http-port>]
 ```
 
-The `http` protocol requires the `nvidia-docker-plugin` to be listening on a reachable interface (by default `nvidia-docker-plugin` only listens on `localhost`). Opting for `ssh` however, only requires valid SSH credentials (either a password or a public key).
+The `http` protocol requires the `nvidia-docker-plugin` to be listening on a reachable interface (by default `nvidia-docker-plugin` only listens on `localhost`). Opting for `ssh` however, only requires valid SSH credentials (either a password or a private key in your ssh-agent).
 
 ```sh
 # Run CUDA on the remote host 10.0.0.1 using HTTP
