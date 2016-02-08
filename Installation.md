@@ -17,6 +17,11 @@ For information on how to install Docker for your Linux distribution, please ref
 
 ## Installing from binaries
 
+Binaries are available for download on the [release page](https://github.com/NVIDIA/nvidia-docker/releases).
+
+Alternatively, deb packages are also available for Ubuntu based distributions.  
+The package installation will automatically setup the `nvidia-docker-plugin` and register it with the init system.
+
 ## Building from sources
 
 At the root directory of the repository issue `make` to build the binaries or alternatively `make install`.
