@@ -3,7 +3,6 @@
 1. [GPU isolation](#gpu-isolation)
 1. [Running it locally](#running-it-locally)
 1. [Running it remotely](#running-it-remotely)
-1. [Known limitations](#known-limitations)
 
 ## Description
 
@@ -84,9 +83,3 @@ NV_HOST='ssh://10.0.0.1:' nvidia-docker -H 10.0.0.1: run cuda
 # Run CUDA on the remote host 10.0.0.1 using SSH with custom user and ports
 DOCKER_HOST='10.0.0.1:' NV_HOST='ssh://foo@10.0.0.1:22:80' nvidia-docker run cuda
 ```
-
-## Known limitations
-
-1. NVIDIA driver installation needs to exist on the same partition as the root of the Docker runtime.  
-`nvidia-docker` internally needs to create hard links to some driver files. Because of this, you need the NVIDIA driver (usually found under `/usr`) to be on the same partition as the Docker root (`/var` by default).
-Possible workarounds includes installing your NVIDIA driver at a different location (see ``--advanced-options`` of the installer) or changing your Docker root directory (see `docker daemon -g`)
