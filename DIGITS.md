@@ -5,7 +5,7 @@
 1. [Tags available](#tags-available)
 
 ## Description
-Docker image based on [NVIDIA/caffe](https://github.com/NVIDIA/caffe), NVIDIA's fork of [BVLC/caffe](https://github.com/BVLC/caffe).
+Docker image based on [DIGITS](https://github.com/NVIDIA/DIGITS).
 
 ## Requirements
 See the requirements for [CUDA](CUDA#requirements) since the DIGITS image is based on a cuDNN runtime image.
