@@ -22,7 +22,7 @@ If you want to use a dataset stored in a host directory, you will need to import
 nvidia-docker run --name digits -d -p 8080:34448 -v /opt/mnist:/data/mnist nvidia/digits
 ```
 
-If you want to share jobs between multiple DIGITS containers, you can use a named volume:
+If you want to persist jobs across multiple DIGITS containers, you can use a named volume:
 ```sh
 # Run DIGITS storing jobs in a host volume named digits-jobs
 nvidia-docker run --name digits -d -p 8080:34448 -v digits-jobs:/usr/share/digits/digits/jobs nvidia/digits
