@@ -21,7 +21,7 @@ Binaries are available for download on the [release page](https://github.com/NVI
 
 Alternatively, deb packages are also available for Ubuntu based distributions: 
 ```
-curl -fsSL https://github.com/NVIDIA/nvidia-docker/releases/download/v1.0.0-beta/nvidia-docker_1.0.0.beta-1_amd64.deb -o /tmp/nvidia-docker.deb
+curl -fsSL https://github.com/NVIDIA/nvidia-docker/releases/download/v1.0.0-beta.2/nvidia-docker_1.0.0.beta.2-1_amd64.deb -o /tmp/nvidia-docker.deb
 sudo dpkg -i /tmp/nvidia-docker.deb
 ``` 
 The package installation will automatically setup the `nvidia-docker-plugin` and register it with the init system.
