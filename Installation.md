@@ -11,7 +11,7 @@ For information on how to install Docker for your Linux distribution, please ref
 1. GNU/Linux x86_64 with kernel version > 3.10
 1. Docker >= 1.9
 1. NVIDIA GPU with Architecture > Fermi (2.1)
-1. [NVIDIA drivers](http://www.nvidia.com/object/unix.html)
+1. [NVIDIA drivers](http://www.nvidia.com/object/unix.html) >= 340.29
 
 > Your driver version might limit your CUDA capabilities (see [CUDA requirements](CUDA#requirements))
 
