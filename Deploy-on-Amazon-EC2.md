@@ -53,7 +53,7 @@ Note that if you create a custom [AMI](http://docs.aws.amazon.com/AWSEC2/latest/
 docker-machine ssh aws01
 
 # Install NVIDIA drivers 361.42
-sudo apt-get install --no-recommends -y gcc make libc-dev
+sudo apt-get install --no-install-recommends -y gcc make libc-dev
 wget -P /tmp http://us.download.nvidia.com/XFree86/Linux-x86_64/361.42/NVIDIA-Linux-x86_64-361.42.run
 sudo sh /tmp/NVIDIA-Linux-x86_64-361.42.run
 
