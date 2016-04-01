@@ -37,7 +37,7 @@ Using [Docker machine](https://docs.docker.com/machine/install-machine/) and the
 ```sh
 docker-machine create --driver amazonec2 \
                       --amazonec2-region us-west-2
-                      --amazonec2-zone a
+                      --amazonec2-zone b
                       --amazonec2-instance-type g2.2xlarge \
                       --amazonec2-vpc-id vpc-*** \
                       --amazonec2-access-key AKI*** \
