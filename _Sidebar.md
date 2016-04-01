@@ -16,3 +16,4 @@
 
 **Getting Started**
 * [[Testing the samples]]
+* [[Deploy on Amazon EC2]]
