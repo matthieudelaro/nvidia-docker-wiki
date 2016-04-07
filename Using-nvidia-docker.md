@@ -15,6 +15,7 @@ Internally, `nvidia-docker` calls `docker`. The command used by `nvidia-docker` 
 # Running nvidia-docker with a custom docker command
 NV_DOCKER='sudo docker -D' nvidia-docker <docker-options> <docker-command> <docker-args>
 ```
+`nvidia-docker` only modifies the behavior of the commands `run`, `create` and `volume` docker commands. All the other commands are just pass-through to the docker CLI client. As a result, you can't use a GPU when building a Docker image.
 
 ## GPU isolation
 
