@@ -30,5 +30,5 @@ The package installation will automatically setup the `nvidia-docker-plugin` and
 
 At the root directory of the repository issue `make` to build the binaries or alternatively `make install`.
 The later will also take care of installing the binaries at the location set by the environment variable `PREFIX`(`/usr/bin` by default).  
-Use `make deb` to manually generate the deb package in `tools/dist`.
+Use `make deb` to manually generate the deb package in `tools/dist`.  
 `make clean` takes care of cleaning the build environment.
