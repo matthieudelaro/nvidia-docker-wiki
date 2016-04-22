@@ -10,6 +10,6 @@ Another option is to leverage our [`nvidia` plugin](https://github.com/NVIDIA/nv
 
 In this section we provide details on the three major services provided by `nvidia-docker`:
 
-* [[Driver files]]
+* [[NVIDIA driver]]
 * [[GPU isolation]]
 * [[Image inspection]]
