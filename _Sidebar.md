@@ -20,6 +20,6 @@
 
 **Advanced topics**
 * [[Internals]]
-  * [[Driver files]]
+  * [[NVIDIA driver]]
   * [[GPU isolation]]
   * [[Image inspection]]
