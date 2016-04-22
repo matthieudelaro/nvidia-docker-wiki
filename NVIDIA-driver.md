@@ -42,6 +42,7 @@ $ docker volume inspect nvidia_driver_361.48
         "Mountpoint": "/var/lib/nvidia-docker/volumes/nvidia_driver/361.48",
         "Labels": null
     }
+]
 ```
 The `nvidia-docker` wrapper will automatically add the volume arguments to the command-line before passing control to `docker`, you only need to have the `nvidia-docker-plugin` daemon running.
 
