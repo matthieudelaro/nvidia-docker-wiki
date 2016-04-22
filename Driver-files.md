@@ -18,7 +18,7 @@ $ ldconfig -p | grep -E 'nvidia|cuda'
 Notice how the libraries are tied to the driver version.  
 The driver installer also provides utility binaries such as `nvidia-smi` and `nvidia-modprobe`. 
 
-One of the early idea for containerizing GPU applications was to install the user-level driver libraries inside the container (for instance using option `--no-kernel-module` from the driver installer) . However,  the user-level driver libraries are tied to the version of the kernel module and all Docker containers share the host OS kernel. The version of the kernel modules had to match **exactly** (major and minor version) the version of the user-level libraries. Trying to run a container on a mismatched environment would immediately yield an error:
+One of the early idea for containerizing GPU applications was to install the user-level driver libraries inside the container (for instance using option `--no-kernel-module` from the driver installer) . However,  the user-level driver libraries are tied to the version of the kernel module and all Docker containers share the host OS kernel. The version of the kernel modules had to match **exactly** (major and minor version) the version of the user-level libraries. Trying to run a container with a mismatched environment would immediately yield an error:
 ```
 # nvidia-smi 
 Failed to initialize NVML: Driver/library version mismatch
