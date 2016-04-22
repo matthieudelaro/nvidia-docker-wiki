@@ -18,3 +18,4 @@ In this section we provide details on the three major services provided by `nvid
 * [[NVIDIA driver]]
 * [[GPU isolation]]
 * [[Image inspection]]
+* [[Remote deployment]]
