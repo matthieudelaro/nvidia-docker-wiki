@@ -31,9 +31,19 @@ The NVIDIA driver supports multiple host OSes, there are multiple ways to instal
 Our approach is equivalent to running `ldconfig -p` as shown above: we programatically parse the ldcache file (`/etc/ld.so.cache`) to discover the location of a predefined list of [ libraries](https://github.com/NVIDIA/nvidia-docker/blob/93bb65de7fc349e6de9f27abdaa75875f5572b17/tools/src/nvidia/volumes.go#L118-L168).
 Some libraries can be found multiple times on the system, and some of them must **not** be picked. For instance, this is true for OpenGL libraries which can be provided by multiple vendors. We have a [function](https://github.com/NVIDIA/nvidia-docker/blob/93bb65de7fc349e6de9f27abdaa75875f5572b17/tools/src/nvidia/volumes.go#L173-L211) to blacklist libraries that are known to be provided by multiple sources.
 
-Since those libraries can be scattered across the host filesystem, we create a Docker [named volume] (https://docs.docker.com/engine/userguide/containers/dockervolumes/) composed of hard links to the discovered libraries.
-This volume can be managed by using the `nvidia-docker-plugin` daemon which implements the Docker API for [volume plugins](https://docs.docker.com/engine/extend/plugins_volume/).
-The `nvidia-docker` wrapper will automatically add the volume arguments to the command-line before passing control to `docker`.
+Since those libraries can be scattered across the host filesystem, we create a Docker [named volume] (https://docs.docker.com/engine/userguide/containers/dockervolumes/) composed of hard links to the discovered libraries, we also have a copy fallback path if hard linking is not possible.
+This volume can be managed by using the `nvidia-docker-plugin` daemon which implements the Docker API for [volume plugins](https://docs.docker.com/engine/extend/plugins_volume/):
+```
+$ docker volume inspect nvidia_driver_361.48 
+[
+    {
+        "Name": "nvidia_driver_361.48",
+        "Driver": "nvidia-docker",
+        "Mountpoint": "/var/lib/nvidia-docker/volumes/nvidia_driver/361.48",
+        "Labels": null
+    }
+```
+The `nvidia-docker` wrapper will automatically add the volume arguments to the command-line before passing control to `docker`, you only need to have the `nvidia-docker-plugin` daemon running.
 
 ## Alternatives
 If you don’t want to use the `nvidia-docker` wrapper, you can add the command-line arguments manually:
