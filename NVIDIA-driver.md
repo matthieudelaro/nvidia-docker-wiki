@@ -1,3 +1,8 @@
+## Contents
+1. [Challenges](#challenges)
+1. [nvidia-docker](#nvidia-docker)
+1. [Alternatives](#alternatives)
+
 ## Challenges
 In order to execute a GPU application on your machine, you need to have the NVIDIA driver installed. The NVIDIA driver is composed of multiple kernel modules:
 ```
