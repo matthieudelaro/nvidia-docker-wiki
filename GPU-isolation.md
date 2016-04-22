@@ -18,11 +18,10 @@ The first challenge is to map the device files (or in other words, the minor num
 ```
 $ nvidia-smi -q
 GPU 0000:05:00.0
-   Minor Number                    : 3
-[...]
+ Minor Number: 3
+
 GPU 0000:06:00.0
-    Minor Number                    : 2
-[...]
+ Minor Number: 2
 ```
 
 The second challenge is related to the `nvidia_uvm` kernel module, it is not loaded automatically at boot time,  thus `/dev/nvidia-uvm` is not created and the container might have insufficient permission to load the kernel module itself. The kernel module must be manually loaded before starting any CUDA container.
