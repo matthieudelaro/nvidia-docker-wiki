@@ -18,13 +18,14 @@ $ ldconfig -p | grep -E 'nvidia|cuda'
 Notice how the libraries are tied to the driver version.  
 The driver installer also provides utility binaries such as `nvidia-smi` and `nvidia-modprobe`. 
 
-One of the early idea for containerizing GPU applications was to install the user-level driver libraries inside the container (for instance using option `--no-kernel-module` from the driver installer) . However,  the user-level driver libraries are tied to the version of the kernel module and all Docker containers share the host OS kernel. The version of the kernel modules had to match **exactly** (major and minor version) the version of the user-level libraries. Trying to run a container with a mismatched environment would immediately yield an error:
+One of the early idea for containerizing GPU applications was to install the user-level driver libraries inside the container (for instance using option `--no-kernel-module` from the driver installer) . However,  the user-level driver libraries are tied to the version of the kernel module and all Docker containers share the host OS kernel. The version of the kernel modules had to match **exactly** (major and minor version) the version of the user-level libraries. Trying to run a container with a mismatched environment would immediately yield an error inside the container:
 ```
 # nvidia-smi 
 Failed to initialize NVML: Driver/library version mismatch
 ```
 This approach made the images non-portable, making image sharing impossible and thus defeating of the main advantage of Docker. The solution is to make the images agnostic of the driver version. The Docker images we provide on the DockerHub are generic, but when creating a container the environment must be specialized for the host kernel module by mounting the user-level libraries from the host using the [`--volume`](https://docs.docker.com/engine/reference/run/#volume-shared-filesystems) argument of `docker run`.
-The NVIDIA driver supports multiple host OSes and the installer can also be customized, there is therefore no standard location for the driver files. The list of files to import can also depend on the driver version.
+
+The NVIDIA driver supports multiple host OSes, there are multiple ways to install the driver (e.g. runfile or deb/rpm package) and the installer can also be customized. Across distributions, there is therefore no portable location for the driver files. The list of files to import can also depend on your driver version.
 
 ## nvidia-docker
 Our approach is equivalent to running `ldconfig -p` as shown above: we programatically parse the ldcache file (`/etc/ld.so.cache`) to discover the location of a predefined list of [ libraries](https://github.com/NVIDIA/nvidia-docker/blob/93bb65de7fc349e6de9f27abdaa75875f5572b17/tools/src/nvidia/volumes.go#L118-L168).
