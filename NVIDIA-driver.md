@@ -46,7 +46,7 @@ $ docker volume create --name=nvidia_driver_361.48 -d nvidia-docker
 ```
 The two solutions above still require using `nvidia-docker-plugin` but this should be less of a problem since volume plugins are officially supported by Docker.
 
-If you don’t want to use the volume plugin, you will have to locate the driver files manually using `ldconfig -p` or by parsing the ldcache. If your environment is well-known, you can just hardcode the paths of the files. For validation, you can peek at the volume created by `nvidia-docker-plugin`:
+If you don’t want to use the volume plugin, you will have to locate the driver files manually using `ldconfig -p` or by parsing the ldcache. If your deployment environment is **entirely** homogeneous, you could simply hardcode the paths of the files for your use-case. For validation, you can peek at the volume created by `nvidia-docker-plugin`:
 ```
 $ ls -R `docker volume inspect -f "{{ .Mountpoint }}" nvidia_driver_361.48`
 ``` 
