@@ -26,7 +26,7 @@ The second challenge is related to the `nvidia_uvm` kernel module, it is not loa
 GPUs are enumerated using function `nvmlDeviceGetCount` from the [NVML library](https://developer.nvidia.com/nvidia-management-library-nvml) and the corresponding device minor is obtained with the function `nvmlDeviceGetMinorNumber`. If the device minor number is N, the device file is simply /dev/nvidiaN.
 Isolation is controlled using the environment variable `NV_GPU`, by passing the indices of the GPUs to isolate, for instance:
 ```
-NV_GPU=0,1 nvidia-docker run -ti nvidia/cuda nvidia-smi
+$ NV_GPU=0,1 nvidia-docker run -ti nvidia/cuda nvidia-smi
 ```
 The `nvidia-docker` wrapper will find the corresponding device files and add the `--device` arguments to the command-line before passing control to `docker`.
 
