@@ -62,4 +62,4 @@ If you don’t want to use the volume plugin, you will have to locate the driver
 $ ls -R `docker volume inspect -f "{{ .Mountpoint }}" nvidia_driver_361.48`
 ``` 
 We don’t recommend solutions based on locating the libraries through `find` since you might pick stray libraries from an older driver install.  
-We recommend to suffix the name of the volume with the driver version, this would prevent mayhem if you update your driver but forget to recreate a new volume.
+We recommend to suffix the name of the volume with the driver version, this will prevent the error `Driver/library version mismatch` if you update your driver but forget to recreate a new volume.
