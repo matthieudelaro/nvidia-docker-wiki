@@ -1,3 +1,8 @@
+## Contents
+1. [Challenges](#challenges)
+1. [nvidia-docker](#nvidia-docker)
+1. [Alternatives](#alternatives)
+
 ## Challenges
 GPUs are exposed as separate device files in `/dev`,  along with additional devices:
 ```
