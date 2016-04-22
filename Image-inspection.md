@@ -1,3 +1,8 @@
+## Contents
+1. [Challenges](#challenges)
+1. [nvidia-docker](#nvidia-docker)
+1. [Alternatives](#alternatives)
+
 ## Challenge
 Mounting user-level driver libraries and device files clobbers the environment of the container, it should be done only when the container is running a GPU application. The challenge here is to determine if a given image will be using the GPU or not.
 We should also prevent launching containers based on a Docker image that is incompatible with the host NVIDIA driver version, you can find more details on this [wiki page](CUDA#requirements).    
