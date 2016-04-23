@@ -8,7 +8,7 @@ $ curl -s http://localhost:3476/docker/cli
 --device=/dev/nvidiactl --device=/dev/nvidia-uvm --device=/dev/nvidia3 --device=/dev/nvidia2 --device=/dev/nvidia1 --device=/dev/nvidia0 --volume-driver=nvidia-docker --volume=nvidia_driver_361.48:/usr/local/nvidia:ro
 $ docker run -ti --rm `curl -s http://localhost:3476/docker/cli` nvidia/cuda nvidia-smi
 ```
-However, this method will not be able to check if the image you are using is compatible with your installed driver, as described in the [image inspection](Image-inspection) subsection. 
+However, this method will not be able to check if the image you are using is compatible with your installed driver, as described in the [image inspection](Image-inspection) subsection. [Remote deployment](Remote-deployment) will also be more challenging.
 
 Another option is to leverage our [`nvidia` package](https://github.com/NVIDIA/nvidia-docker/tree/master/tools/src/nvidia) written in the Go programming language. Go is currently the language of choice for containers, many projects should be able to interface with our package seamlessly.
 
