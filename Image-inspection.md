@@ -20,9 +20,9 @@ nvidia-docker | 2016/04/21 21:41:35 Error: unsupported CUDA version: driver 7.0 
 ## Alternatives
 In this case, `nvidia-docker` does not simply inject arguments to the `docker` command-line. As a result, it’s more complicated to reproduce this behavior. You would need to inspect the images upstream in your workflow or inside your container orchestration solution. Looking up a label inside an image is simple:
 ```
-$ docker inspect --format='{{index .Config.Labels "com.nvidia.volumes.needed"}}' nvidia/cuda
+$ docker inspect -f '{{index .Config.Labels "com.nvidia.volumes.needed"}}' nvidia/cuda
 nvidia_driver
-$ docker inspect --format='{{index .Config.Labels "com.nvidia.cuda.version"}}' nvidia/cuda
+$ docker inspect -f '{{index .Config.Labels "com.nvidia.cuda.version"}}' nvidia/cuda
 7.5
 ```
 If you build your own custom CUDA images, we suggest you to reuse the same labels for compatibility reasons.
