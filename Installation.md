@@ -34,10 +34,6 @@ The later will also take care of installing the binaries at the location set by 
 sudo -b nohup nvidia-docker-plugin
 ```
 
-Use `make deb` to manually generate the deb package in `tools/dist`, you will need the packages `dh-make` and `devscripts`. Use `dpkg -i` to install it the deb:
-```
-sudo dpkg -i tools/dist/nvidia-docker_*.deb
-```
-The `nvidia-docker-plugin` daemon will be started automatically.
+Use `make deb` to manually generate the deb package in `tools/dist`, you will need the packages `dh-make` and `devscripts`. Use `dpkg -i` to install the deb, as shown in the section above. The `nvidia-docker-plugin` daemon will be started automatically.
 
 `make clean` takes care of cleaning the build environment.
