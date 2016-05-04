@@ -58,8 +58,8 @@ wget -P /tmp http://us.download.nvidia.com/XFree86/Linux-x86_64/361.42/NVIDIA-Li
 sudo sh /tmp/NVIDIA-Linux-x86_64-361.42.run
 
 # Install nvidia-docker and nvidia-docker-plugin
-wget -P /tmp https://github.com/NVIDIA/nvidia-docker/releases/download/v1.0.0-beta.3/nvidia-docker_1.0.0.beta.3-1_amd64.deb
-sudo dpkg -i /tmp/nvidia-docker_1.0.0.beta.3-1_amd64.deb
+wget -P /tmp https://github.com/NVIDIA/nvidia-docker/releases/download/v1.0.0-rc/nvidia-docker_1.0.0.rc-1_amd64.deb
+sudo dpkg -i /tmp/nvidia-docker_1.0.0.rc-1_amd64.deb
 
 # Run nvidia-docker-plugin
 sudo -b nohup nvidia-docker-plugin > /tmp/nvidia-docker.log
