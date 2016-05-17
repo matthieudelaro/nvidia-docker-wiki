@@ -51,8 +51,10 @@ Check the [tags reference](https://hub.docker.com/r/nvidia/cuda/tags/) for a giv
 - [`6.5-devel`, `6.5` (*ubuntu-14.04/cuda/6.5/devel/Dockerfile*)](https://github.com/NVIDIA/nvidia-docker/blob/master/ubuntu-14.04/cuda/6.5/devel/Dockerfile)
 
 **CUDA + cuDNN**
-- [`7.5-cudnn4-runtime`, `cudnn-runtime` (*ubuntu-14.04/cuda/7.5/runtime/cudnn4/Dockerfile*)](https://github.com/NVIDIA/nvidia-docker/blob/master/ubuntu-14.04/cuda/7.5/runtime/cudnn4/Dockerfile)
-- [`7.5-cudnn4-devel`, `cudnn-devel`, `cudnn` (*ubuntu-14.04/cuda/7.0/devel/cudnn4/Dockerfile*)](https://github.com/NVIDIA/nvidia-docker/blob/master/ubuntu-14.04/cuda/7.5/devel/cudnn4/Dockerfile)
+- [`7.5-cudnn5-runtime`, `cudnn-runtime` (*ubuntu-14.04/cuda/7.5/runtime/cudnn5/Dockerfile*)](https://github.com/NVIDIA/nvidia-docker/blob/master/ubuntu-14.04/cuda/7.5/runtime/cudnn5/Dockerfile)
+- [`7.5-cudnn5-devel`, `cudnn-devel`, `cudnn` (*ubuntu-14.04/cuda/7.5/devel/cudnn5/Dockerfile*)](https://github.com/NVIDIA/nvidia-docker/blob/master/ubuntu-14.04/cuda/7.5/devel/cudnn5/Dockerfile)
+- [`7.5-cudnn4-runtime` (*ubuntu-14.04/cuda/7.5/runtime/cudnn4/Dockerfile*)](https://github.com/NVIDIA/nvidia-docker/blob/master/ubuntu-14.04/cuda/7.5/runtime/cudnn4/Dockerfile)
+- [`7.5-cudnn4-devel` (*ubuntu-14.04/cuda/7.5/devel/cudnn4/Dockerfile*)](https://github.com/NVIDIA/nvidia-docker/blob/master/ubuntu-14.04/cuda/7.5/devel/cudnn4/Dockerfile)
 - [`7.5-cudnn3-runtime` (*ubuntu-14.04/cuda/7.5/runtime/cudnn3/Dockerfile*)](https://github.com/NVIDIA/nvidia-docker/blob/master/ubuntu-14.04/cuda/7.5/runtime/cudnn3/Dockerfile)
 - [`7.5-cudnn3-devel` (*ubuntu-14.04/cuda/7.0/devel/cudnn3/Dockerfile*)](https://github.com/NVIDIA/nvidia-docker/blob/master/ubuntu-14.04/cuda/7.5/devel/cudnn3/Dockerfile)
 - [`7.0-cudnn4-runtime` (*ubuntu-14.04/cuda/7.0/runtime/cudnn4/Dockerfile*)](https://github.com/NVIDIA/nvidia-docker/blob/master/ubuntu-14.04/cuda/7.0/runtime/cudnn4/Dockerfile)
