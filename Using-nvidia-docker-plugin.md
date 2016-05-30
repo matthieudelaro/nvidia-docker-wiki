@@ -12,7 +12,7 @@ The plugin also provides a [REST API](#rest-api) that one can query to get GPU i
 
 ## Usage
 
-The plugin daemon can be tuned using the following arguments:  
+The plugin daemon can be tuned using the following arguments:
 (If you are using the debian package, those can be changed using the configuration file `/etc/default/nvidia-docker`)
 
 ```sh
@@ -50,27 +50,28 @@ REST endpoints are described below. Note that if a given client only cares about
 
 #### Version 1.0
 
-* GET `/v1.0/gpu/info`, `/v1.0/gpu/info/json` 
-> Queries the GPU devices information (akin to `nvidia-smi -q`).  
+* GET `/v1.0/gpu/info`, `/v1.0/gpu/info/json`
+> Queries the GPU devices information (akin to `nvidia-smi -q`).
 > Response format is `text/plain` and `application/json` respectively.
 
 * GET `/v1.0/gpu/status`, `/v1.0/gpu/status/json`
-> Queries the GPU devices status (akin to `nvidia-smi`).  
+> Queries the GPU devices status (akin to `nvidia-smi`).
 > Response format is `text/plain` and `application/json` respectively.
 
-* GET `/v1.0/docker/cli`
-> Queries the command-line parameters to use with `docker run` or `docker create`.  
-> It accepts two query-string parameters: `dev` for devices (akin to `NV_GPU`) and `vol` for volumes.  
-> This is useful if you don't want to rely on the `nvidia-docker` alternative CLI:  
-> ```docker run -ti `curl -s http://localhost:3476/v1.0/docker/cli?dev=0+1\&vol=nvidia_driver` cuda```  
+* GET `/v1.0/docker/cli`, `/v1.0/docker/cli/json`
+> Queries the command-line parameters to use with `docker run` or `docker create`.
+> It accepts two query-string parameters: `dev` for devices (akin to `NV_GPU`) and `vol` for volumes.
+> This is useful if you don't want to rely on the `nvidia-docker` alternative CLI:
+> ```docker run -ti `curl -s http://localhost:3476/v1.0/docker/cli?dev=0+1\&vol=nvidia_driver` cuda```
+> Response format is `text/plain` and `application/json` respectively.
 
 * GET `/v1.0/mesos/cli`
-> Queries the command-line parameters to use when starting a Mesos agent.  
+> Queries the command-line parameters to use when starting a Mesos agent.
 > Similar to `/v1.0/gpu/info/json` but compress and encodes the devices information in zlib / base64 (RFC 6920).
 
 ## Known limitations
 
-1. NVIDIA driver installation needs to live on the same partition as the volume directory of the Docker plugin.  
+1. NVIDIA driver installation needs to live on the same partition as the volume directory of the Docker plugin.
 `nvidia-docker-plugin` internally needs to create hard links to some driver files. Because of this, you need the NVIDIA driver (usually found under `/usr`) to be on the same partition as the Docker plugin volume directory (`/var` by default).
 Possible workarounds includes installing your NVIDIA driver at a different location (see ``--advanced-options`` of the installer) or changing your plugin volume directory (see `nvidia-docker-plugin -v`)
 
